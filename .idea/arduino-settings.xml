@@ -5,7 +5,6 @@
     <option name="comPort" value="COM7" />
     <option name="boardTarget" value="nucleo_f4" />
     <option name="serialPort" value="COM7" />
-    <option name="monitorResetOnConnect" value="false" />
     <option name="activeBackend" value="arduino-cli" />
   </component>
 </project>
