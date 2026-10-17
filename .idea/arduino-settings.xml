@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArduinoSettingsState">
+    <option name="arduinoCliPath" value="C:\ManualCLI\arduino-cli_1.5.2-rc.1_Windows_64bit\arduino-cli.exe" />
+    <option name="comPort" value="COM7" />
+    <option name="boardTarget" value="nucleo_f4" />
+    <option name="serialPort" value="COM7" />
+    <option name="monitorResetOnConnect" value="false" />
+    <option name="activeBackend" value="arduino-cli" />
+  </component>
+</project>
