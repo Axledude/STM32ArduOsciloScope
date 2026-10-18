@@ -1,14 +1,17 @@
 #include <Arduino.h>
+#include <thread>
 #include "lcdUtil/LCDManager.h"
 
 LiquidCrystal lcd(D0, D1, D2, D3, D4, D5);
-int rawValue = 0;
-float voltage = 0.0;
+int rawValue;
+float readVoltage;
 
 void setup() {
-    analogReadResolution(12); //12 bit
+    analogReadResolution(10); //10 bit
+
     Serial.begin(115200);
     Serial.println("STM32ArduOscilo " VERSION_V1);
+
     lcd.begin(16, 2);
     lcd.print("STM32ArduOscilo");
     lcd.setCursor(0, 1);
@@ -19,21 +22,22 @@ void setup() {
 
 void loop() {
     rawValue = analogRead(A5);
-    voltage = (rawValue * 5) / 4095.0;
+    readVoltage = (rawValue * 5) / 1023.0;
 
+    Serial.println("A5 Pin:");
     Serial.print("Raw: ");
     Serial.print(rawValue);
-
     Serial.print(" | Voltage: ");
-    Serial.print(voltage);
+    Serial.print(readVoltage);
     Serial.println(" V");
+    Serial.clearWriteError();
 
     lcd.setCursor(0,0);
     lcd.print("Raw:");
     lcd.print(rawValue);
     lcd.setCursor(0,1);
     lcd.print("V:");
-    lcd.print(voltage, 2);
+    lcd.print(readVoltage, 2);
     delay(100);
     lcd.clear();
 }
